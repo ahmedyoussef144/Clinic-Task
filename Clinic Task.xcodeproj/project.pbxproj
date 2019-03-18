@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		021AD6DC80A72B416BD364E2 /* Pods_Clinic_Task.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB56D02BB595298C0EE9255 /* Pods_Clinic_Task.framework */; };
 		88FD57CA2240524C00DC9399 /* RoundedSideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD57C92240524C00DC9399 /* RoundedSideButton.swift */; };
+		88FD57CC2240561500DC9399 /* NetworkManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD57CB2240561500DC9399 /* NetworkManger.swift */; };
 		88FD6BD4223FDEA5000577FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD6BD3223FDEA5000577FF /* AppDelegate.swift */; };
 		88FD6BD6223FDEA5000577FF /* DoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD6BD5223FDEA5000577FF /* DoctorsViewController.swift */; };
 		88FD6BD9223FDEA5000577FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FD6BD7223FDEA5000577FF /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		387CD560E5227B18538E51EC /* Pods-Clinic Task.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Clinic Task.release.xcconfig"; path = "Pods/Target Support Files/Pods-Clinic Task/Pods-Clinic Task.release.xcconfig"; sourceTree = "<group>"; };
 		88FD57C92240524C00DC9399 /* RoundedSideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSideButton.swift; sourceTree = "<group>"; };
+		88FD57CB2240561500DC9399 /* NetworkManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManger.swift; sourceTree = "<group>"; };
 		88FD6BD0223FDEA5000577FF /* Clinic Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clinic Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FD6BD3223FDEA5000577FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88FD6BD5223FDEA5000577FF /* DoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				88FD6BE5223FDF34000577FF /* View */,
 				88FD6BE6223FDF4B000577FF /* Controller */,
 				88FD6BDF223FDEAF000577FF /* Info.plist */,
+				88FD57CB2240561500DC9399 /* NetworkManger.swift */,
 			);
 			path = "Clinic Task";
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88FD57CC2240561500DC9399 /* NetworkManger.swift in Sources */,
 				88FD6BD6223FDEA5000577FF /* DoctorsViewController.swift in Sources */,
 				88FD6BD4223FDEA5000577FF /* AppDelegate.swift in Sources */,
 				88FD57CA2240524C00DC9399 /* RoundedSideButton.swift in Sources */,

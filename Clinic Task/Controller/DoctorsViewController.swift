@@ -10,45 +10,41 @@ import UIKit
 
 typealias completionType = ((Decodable)->())
 typealias errorType = ((Error?)->())
-class DoctorsViewController: UIViewController
-{
+
+class DoctorsViewController: UIViewController {
     
     @IBOutlet var doctorsTabelView: UITableView!
+    
     private var doctors : [Doctor] = []
-    override func viewDidLoad()
-    {
+    private var networkManger = NetworkManger.shared
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupDoctorsTableview()
-        doctorsTabelView.delegate = self
-        doctorsTabelView.dataSource = self
-        getDoctors(andCompletion:
-            {
-                (result) in
-                if let result = result as? DoctorsResponse
-                {
-                    if result.error?.status == true , let doctors = result.response
-                    {
-                        self.handelLoadingDoctors(doctors : doctors)
-                        
-                    }
-                    else
-                    {
-                        self.handelErorLoadingDoctors()
-                    }
-                    
+    }
+    func loadDoctors() {
+        networkManger.getDoctors(andCompletion: {
+            (result) in
+            if let result = result as? DoctorsResponse {
+                if result.error?.status == true , let doctors = result.response {
+                    self.handelLoadingDoctors(doctors : doctors)
                 }
                 else
                 {
                     self.handelErorLoadingDoctors()
                 }
                 
+            }
+            else
+            {
+                self.handelErorLoadingDoctors()
+            }
+            
         })
         { (error) in
             //Show network Error Message
             print(error)
         }
-        
     }
     func handelLoadingDoctors(doctors : [Doctor])
     {
@@ -61,6 +57,8 @@ class DoctorsViewController: UIViewController
     
     private func setupDoctorsTableview()
     {
+        doctorsTabelView.delegate = self
+        doctorsTabelView.dataSource = self
         registerDoctorTableCells()
         doctorsTabelView.estimatedRowHeight = 150
         doctorsTabelView.rowHeight = UITableView.automaticDimension
@@ -71,54 +69,7 @@ class DoctorsViewController: UIViewController
         let doctorCellNib = UINib(nibName: DoctorCell.identifier, bundle: nil)
         doctorsTabelView.register(doctorCellNib, forCellReuseIdentifier: DoctorCell.identifier)
     }
-    private func getDoctors(andCompletion completion: @escaping completionType , andErrorHandler errorHandler: @escaping errorType)
-    {
-        let url = URL(string: "https://admin-seena.com/api/doctors/all")
-        var request = URLRequest(url: url! )
-        request.httpMethod = "POST"
-        let task = URLSession.shared.dataTask(with: request)
-        {
-            (data, response, error) in
-            if  error != nil
-            {
-                DispatchQueue.main.async
-                    {
-                        errorHandler(error)
-                }
-            }
-            else
-            {
-                if let data = data
-                {
-                    do
-                    {
-                        let decoder = JSONDecoder()
-                        let result  = try decoder.decode(DoctorsResponse.self, from: data)
-                        DispatchQueue.main.async
-                            {
-                                completion(result)
-                        }
-                    }
-                    catch
-                    {
-                        DispatchQueue.main.async
-                            {
-                                print(error)
-                                errorHandler(error)
-                        }
-                    }
-                }
-                else
-                {
-                    DispatchQueue.main.async
-                        {
-                            errorHandler(error)
-                    }
-                }
-            }
-        }
-        task.resume()
-    }
+   
     
 }
 
