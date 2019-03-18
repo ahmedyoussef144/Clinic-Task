@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		88FD6BD4223FDEA5000577FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD6BD3223FDEA5000577FF /* AppDelegate.swift */; };
-		88FD6BD6223FDEA5000577FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD6BD5223FDEA5000577FF /* ViewController.swift */; };
+		88FD6BD6223FDEA5000577FF /* DoctorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD6BD5223FDEA5000577FF /* DoctorsViewController.swift */; };
 		88FD6BD9223FDEA5000577FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FD6BD7223FDEA5000577FF /* Main.storyboard */; };
 		88FD6BDB223FDEAF000577FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88FD6BDA223FDEAF000577FF /* Assets.xcassets */; };
 		88FD6BDE223FDEAF000577FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FD6BDC223FDEAF000577FF /* LaunchScreen.storyboard */; };
 		88FD6BE9223FDFA3000577FF /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD6BE8223FDFA3000577FF /* Doctor.swift */; };
+		88FD6BEC223FEA00000577FF /* DoctorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FD6BEA223FEA00000577FF /* DoctorCell.swift */; };
+		88FD6BED223FEA00000577FF /* DoctorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FD6BEB223FEA00000577FF /* DoctorCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		88FD6BD0223FDEA5000577FF /* Clinic Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clinic Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FD6BD3223FDEA5000577FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88FD6BD5223FDEA5000577FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		88FD6BD5223FDEA5000577FF /* DoctorsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsViewController.swift; sourceTree = "<group>"; };
 		88FD6BD8223FDEA5000577FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88FD6BDA223FDEAF000577FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88FD6BDD223FDEAF000577FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88FD6BDF223FDEAF000577FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		88FD6BE8223FDFA3000577FF /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
+		88FD6BEA223FEA00000577FF /* DoctorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorCell.swift; sourceTree = "<group>"; };
+		88FD6BEB223FEA00000577FF /* DoctorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				88FD6BD7223FDEA5000577FF /* Main.storyboard */,
 				88FD6BDA223FDEAF000577FF /* Assets.xcassets */,
 				88FD6BDC223FDEAF000577FF /* LaunchScreen.storyboard */,
+				88FD6BEA223FEA00000577FF /* DoctorCell.swift */,
+				88FD6BEB223FEA00000577FF /* DoctorCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -78,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				88FD6BD3223FDEA5000577FF /* AppDelegate.swift */,
-				88FD6BD5223FDEA5000577FF /* ViewController.swift */,
+				88FD6BD5223FDEA5000577FF /* DoctorsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +157,7 @@
 			files = (
 				88FD6BDE223FDEAF000577FF /* LaunchScreen.storyboard in Resources */,
 				88FD6BDB223FDEAF000577FF /* Assets.xcassets in Resources */,
+				88FD6BED223FEA00000577FF /* DoctorCell.xib in Resources */,
 				88FD6BD9223FDEA5000577FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,8 +169,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88FD6BD6223FDEA5000577FF /* ViewController.swift in Sources */,
+				88FD6BD6223FDEA5000577FF /* DoctorsViewController.swift in Sources */,
 				88FD6BD4223FDEA5000577FF /* AppDelegate.swift in Sources */,
+				88FD6BEC223FEA00000577FF /* DoctorCell.swift in Sources */,
 				88FD6BE9223FDFA3000577FF /* Doctor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
