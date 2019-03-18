@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import UIScrollView_InfiniteScroll
 typealias completionType = ((Decodable)->())
 typealias errorType = ((Error?)->())
 
@@ -15,6 +15,8 @@ class DoctorsViewController: UIViewController {
     
     @IBOutlet var doctorsTabelView: UITableView!
     
+    private var offset = 0
+    private var limit = 5
     private var doctors : [Doctor] = []
     private var networkManger = NetworkManger.shared
     override func viewDidLoad() {
@@ -22,9 +24,20 @@ class DoctorsViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         setupDoctorsTableview()
         loadDoctors()
+        setupTabelViewInfinitScrol()
+    }
+    func setupTabelViewInfinitScrol()
+    {
+        doctorsTabelView.addInfiniteScroll
+        {
+            (tabelView) in
+            self.loadDoctors()
+            tabelView.finishInfiniteScroll()
+            
+        }
     }
     func loadDoctors() {
-        networkManger.getDoctors(body: DoctorsEndPoint.init(offset: 0, limit: 5), andCompletion: {
+        networkManger.getDoctors(body: DoctorsEndPoint.init(offset: offset, limit: limit + offset), andCompletion: {
             (result) in
             if let result = result as? DoctorsResponse {
                 if result.error?.status == true , let doctors = result.response {
@@ -49,7 +62,8 @@ class DoctorsViewController: UIViewController {
     }
     func handelLoadingDoctors(doctors : [Doctor])
     {
-        self.doctors = doctors
+        self.doctors.append(contentsOf: doctors)
+        offset += 5
         doctorsTabelView.reloadData()
     }
     func handelErorLoadingDoctors() {

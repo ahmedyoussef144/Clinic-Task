@@ -20,8 +20,7 @@ class NetworkManger {
             (data, response, error) in
             if  error != nil
             {
-                DispatchQueue.main.async
-                    {
+                DispatchQueue.main.async {
                         errorHandler(error)
                 }
             }
