@@ -23,7 +23,7 @@
                     <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ozU-30-dLr" userLabel="DoctorInfo">
                         <rect key="frame" x="10" y="19" width="202.5" height="90"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partlysunny" translatesAutoresizingMaskIntoConstraints="NO" id="RgF-ra-g6k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="RgF-ra-g6k">
                                 <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="Caw-R6-R1H"/>
@@ -73,7 +73,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Jr5-9G-XoL">
                                 <rect key="frame" x="0.0" y="0.0" width="92.5" height="20"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="partlysunny" translatesAutoresizingMaskIntoConstraints="NO" id="Gj0-Fj-6tk">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="Gj0-Fj-6tk">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="3Uu-ib-Eo9"/>
@@ -120,6 +120,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="partlysunny" width="186" height="141"/>
+        <image name="PlaceHolder" width="233" height="232"/>
     </resources>
 </document>

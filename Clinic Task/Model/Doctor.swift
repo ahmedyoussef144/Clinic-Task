@@ -7,17 +7,35 @@
 //
 
 import Foundation
+
+struct DoctorsResponse: Codable
+{
+    let error: DoctorsError?
+    let response: [Doctor]?
+    enum CodingKeys: String, CodingKey
+    {
+        case response = "Response"
+        case error = "Error"
+    }
+}
+struct DoctorsError: Codable
+{
+    let status: Bool?
+    let code: Int?
+    let desc: String?
+    let token: String?
+}
 struct Doctor: Codable
 {
-    let id, accountType: Int
-    let name: String
-    let image: String
-    let speciality: String
-    let minFees, accountID: Int
-    let uniqueID: String
-    let isPremium: Int
+    let id, accountType: Int?
+    let name: String?
+    let image: String?
+    let speciality: String?
+    let minFees, accountID: Int?
+    let uniqueID: String?
+    let isPremium: Int?
     let title: String?
-    let myRecommendsCount, followers, isRecommended: Int
+    let myRecommendsCount, followers, isRecommended: Int?
     
     enum CodingKeys: String, CodingKey
     {

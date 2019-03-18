@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DoctorCell: UITableViewCell
 {
-
+    
     
     @IBOutlet weak var doctorFeeLabel: UILabel!
     @IBOutlet weak var doctorNumofFollowersLabel: UILabel!
@@ -23,13 +24,22 @@ class DoctorCell: UITableViewCell
     {
         super.awakeFromNib()
         // Initialization code
+        doctorImage.layer.cornerRadius = 6
+        doctorImage.clipsToBounds = true
+        bookedButton.layer.cornerRadius = 5
+        bookedButton.clipsToBounds = true
+        
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool)
+    func configure(doctor : Doctor)
     {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        doctorNameLabel.text = doctor.name
+        doctorSpcialistLabel.text = doctor.speciality
+        doctorNumofFollowersLabel.text = "\(doctor.followers ?? 0)"
+        doctorFeeLabel.text = "\(doctor.minFees ?? 0)"
+        if let url = doctor.image {
+            let imageUrl = URL.init(string: url)
+            doctorImage.sd_setImage(with: imageUrl, placeholderImage:UIImage.init(named: "PlaceHolder"))
+        }
+        
     }
-    
 }
