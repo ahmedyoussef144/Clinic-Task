@@ -21,9 +21,10 @@ class DoctorsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         setupDoctorsTableview()
+        loadDoctors()
     }
     func loadDoctors() {
-        networkManger.getDoctors(andCompletion: {
+        networkManger.getDoctors(body: DoctorsEndPoint.init(offset: 0, limit: 5), andCompletion: {
             (result) in
             if let result = result as? DoctorsResponse {
                 if result.error?.status == true , let doctors = result.response {

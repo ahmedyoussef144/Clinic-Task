@@ -11,10 +11,10 @@ import Foundation
 class NetworkManger {
     static let shared = NetworkManger.init()
     private init(){}
-    func getDoctors(andCompletion completion: @escaping completionType , andErrorHandler errorHandler: @escaping errorType) {
-        let url = URL(string: "https://admin-seena.com/api/doctors/all")
+    func getDoctors(body: DoctorsEndPoint ,andCompletion completion: @escaping completionType , andErrorHandler errorHandler: @escaping errorType) {
+        let url = URL(string: body.url )
         var request = URLRequest(url: url! )
-        request.httpMethod = "POST"
+        request.httpMethod = body.methodType
         let task = URLSession.shared.dataTask(with: request)
         {
             (data, response, error) in
