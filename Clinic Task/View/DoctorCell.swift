@@ -26,8 +26,8 @@ class DoctorCell: UITableViewCell
         // Initialization code
         doctorImage.layer.cornerRadius = 6
         doctorImage.clipsToBounds = true
-        bookedButton.layer.cornerRadius = 5
-        bookedButton.clipsToBounds = true
+//        bookedButton.layer.cornerRadius = 10
+//        bookedButton.clipsToBounds = true
         
     }
     func configure(doctor : Doctor)
