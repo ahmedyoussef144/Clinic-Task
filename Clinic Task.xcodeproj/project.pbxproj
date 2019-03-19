@@ -77,6 +77,7 @@
 				88FD6BE5223FDF34000577FF /* View */,
 				88FD6BE6223FDF4B000577FF /* Controller */,
 				88FD6BDF223FDEAF000577FF /* Info.plist */,
+				88FD6BDC223FDEAF000577FF /* LaunchScreen.storyboard */,
 				88FD57CB2240561500DC9399 /* NetworkManger.swift */,
 			);
 			path = "Clinic Task";
@@ -87,7 +88,6 @@
 			children = (
 				88FD6BD7223FDEA5000577FF /* Main.storyboard */,
 				88FD6BDA223FDEAF000577FF /* Assets.xcassets */,
-				88FD6BDC223FDEAF000577FF /* LaunchScreen.storyboard */,
 				88FD6BEA223FEA00000577FF /* DoctorCell.swift */,
 				88FD6BEB223FEA00000577FF /* DoctorCell.xib */,
 				88FD57C92240524C00DC9399 /* RoundedSideButton.swift */,

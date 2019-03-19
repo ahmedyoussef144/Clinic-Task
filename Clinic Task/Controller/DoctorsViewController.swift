@@ -26,52 +26,8 @@ class DoctorsViewController: UIViewController {
         loadDoctors()
         setupTabelViewInfinitScrol()
     }
-    func setupTabelViewInfinitScrol()
-    {
-        doctorsTabelView.addInfiniteScroll
-        {
-            (tabelView) in
-            self.loadDoctors()
-            tabelView.finishInfiniteScroll()
-            
-        }
-    }
-    func loadDoctors() {
-        networkManger.getDoctors(body: DoctorsEndPoint.init(offset: offset, limit: limit + offset), andCompletion: {
-            (result) in
-            if let result = result as? DoctorsResponse {
-                if result.error?.status == true , let doctors = result.response {
-                    self.handelLoadingDoctors(doctors : doctors)
-                }
-                else
-                {
-                    self.handelErorLoadingDoctors()
-                }
-                
-            }
-            else
-            {
-                self.handelErorLoadingDoctors()
-            }
-            
-        })
-        { (error) in
-            //Show network Error Message
-            print(error)
-        }
-    }
-    func handelLoadingDoctors(doctors : [Doctor])
-    {
-        self.doctors.append(contentsOf: doctors)
-        offset += 5
-        doctorsTabelView.reloadData()
-    }
-    func handelErorLoadingDoctors() {
-        // Show alert
-    }
-    
-    private func setupDoctorsTableview()
-    {
+    //MARK: - TabelView SetUp Methods
+    private func setupDoctorsTableview() {
         doctorsTabelView.delegate = self
         doctorsTabelView.dataSource = self
         registerDoctorTableCells()
@@ -79,13 +35,53 @@ class DoctorsViewController: UIViewController {
         doctorsTabelView.rowHeight = UITableView.automaticDimension
     }
     
-    private func registerDoctorTableCells()
-    {
+    private func registerDoctorTableCells() {
         let doctorCellNib = UINib(nibName: DoctorCell.identifier, bundle: nil)
         doctorsTabelView.register(doctorCellNib, forCellReuseIdentifier: DoctorCell.identifier)
     }
-   
     
+    func setupTabelViewInfinitScrol() {
+        doctorsTabelView.addInfiniteScroll {
+            (tabelView) in
+            self.loadDoctors()
+            tabelView.finishInfiniteScroll()
+        }
+    }
+    //MARK: - Fetching Data Methods
+    func loadDoctors() {
+        networkManger.getDoctors(body: DoctorsEndPoint.init(offset: offset, limit: limit), andCompletion: {
+            (result) in
+            if let result = result as? DoctorsResponse {
+                if result.error?.status == true , let doctors = result.response {
+                    self.handelLoadingDoctors(doctors : doctors)
+                }
+                else {
+                    //Show Loading data Error Message
+                    self.handelErorLoadingDoctors()
+                }
+            }
+            else {
+                //Show Loading data Error Message
+                self.handelErorLoadingDoctors()
+            }
+        })
+        {
+            (error) in
+            //Show network Error Message
+            self.showAlert(withMessage: "\(error)", andTitle: "Netwrok Error")
+        }
+    }
+    
+    func handelLoadingDoctors(doctors : [Doctor]) {
+        self.doctors.append(contentsOf: doctors)
+        offset += 5
+        doctorsTabelView.reloadData()
+    }
+    
+    func handelErorLoadingDoctors() {
+        // Show alert
+        showAlert(withMessage: "Error In Fetching Data", andTitle: "Loading Error")
+    }
 }
 
 //MARK: - TableView Datasource and Delegate Methods
@@ -102,5 +98,16 @@ extension DoctorsViewController : UITableViewDataSource ,UITableViewDelegate
         cell.configure(doctor: doctors[indexPath.row])
         return cell
         
+    }
+}
+
+//MARK: - Alert SetUp Method
+extension DoctorsViewController
+{
+    func showAlert(withMessage message: String , andTitle title: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert , animated: true)
     }
 }
